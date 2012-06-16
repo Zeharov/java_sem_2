@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <p>
+            <h:form>
+                <h:dataTable value="#{imageBean.iamges}" var="item">
+                <f:facet name="header">#{msg.images}</f:facet>
+
+                <h:column>
+                    <f:facet name="header">#{msg.title}</f:facet>
+                    <h:commandLink value="#{item.title}" action="#{imageBean.showImage}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.autor}</f:facet>
+                    #{item.autor}
+                </h:column>
+                
+                <h:column>
+                    <h:commandLink value="#{msg.edit}" action="#{imageBean.editImage}"/> /
+                    <h:commandLink value="#{msg.delete}" action="#{imageBean.deleteImage}"/>
+                </h:column>
+            </h:dataTable>
+            <p>
+                <h:commandLink value="#{msg.addImage}" action="#{imageBean.addImage}" />
+            </p>
+            </h:form>
+        </p>
+    </ui:define>
+</ui:composition>

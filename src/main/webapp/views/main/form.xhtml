@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="form">
+        <h:panelGrid columns="3">
+
+            <h:outputText value="#{msg.title}" />
+            <h:inputText id="title" value="#{imageBean.image.title}" size="120">
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="title" style="color:red" />
+            
+            <h:outputText value="#{msg.autor}" />
+            <h:inputText id="autor" value="#{imageBean.image.autor}" size="60" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="autor" style="color:red" />
+            
+            <h:outputText value="#{msg.price}" />
+            <h:inputText id="price" value="#{imageBean.image.price}" size="20" >
+                <f:validateRequired />
+            </h:inputText>
+            <h:messages for="price" style="color:red" />
+        </h:panelGrid>
+        <p>
+            <h:commandButton value="#{msg.persist}" action="#{imageBean.persist}" />
+        </p>
+    </h:form>
+</ui:composition>
